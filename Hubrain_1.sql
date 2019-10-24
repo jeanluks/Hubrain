@@ -1,0 +1,29 @@
+CREATE DATABASE Hubrain;
+
+USE Hubrain;
+
+CREATE TABLE SQUADS(
+ID_squad INT NOT NULL AUTO_INCREMENT,
+tipo_squad VARCHAR(30),
+modulos INT,
+aulas INT,
+documentacao VARCHAR(30),
+primary key(ID_squad)
+)DEFAULT CHARSET = utf8;
+
+CREATE TABLE SQUAD_TRAINEE(
+ID_squad INT,
+login VARCHAR(30),
+FOREIGN KEY(ID_squad) REFERENCES SQUADS(ID_squad),
+FOREIGN KEY(login) REFERENCES TRAINEE(login)
+);
+
+CREATE TABLE TRAINEE(
+login VARCHAR(30) NOT NULL,
+senha VARCHAR(30),
+PRIMARY KEY(login)
+)DEFAULT CHARSET = utf8;
+
+
+
+
